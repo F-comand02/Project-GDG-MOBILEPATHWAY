@@ -170,7 +170,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
             Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.deepPurple.shade50,
+                color: const Color.fromARGB(255, 176, 135, 242),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Column(

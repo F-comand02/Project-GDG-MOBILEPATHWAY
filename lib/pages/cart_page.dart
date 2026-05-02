@@ -155,7 +155,7 @@ class _CartPageState extends State<CartPage> {
                 Container(
                   padding: const EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    color: const Color.fromARGB(255, 115, 207, 238),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(24),
                       topRight: Radius.circular(24),

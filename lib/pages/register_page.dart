@@ -18,19 +18,60 @@ class _RegisterPageState extends State<RegisterPage> {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
   }
 
+  void _showVerificationDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Verifikasi Email'),
+        content: const Text('Email verifikasi telah dikirim. Silakan cek inbox atau spam folder dan klik link untuk memverifikasi akun.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('OK'),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context); // Close dialog
+              setState(() => _isLoading = true);
+              try {
+                await _auth.sendVerificationEmail();
+                _showMessage('Email verifikasi dikirim ulang.');
+              } catch (e) {
+                _showMessage('Gagal mengirim ulang: $e');
+              }
+              setState(() => _isLoading = false);
+            },
+            child: const Text('Kirim Ulang'),
+          ),
+        ],
+      ),
+    );
+  }
+
   Future<void> _register() async {
     setState(() => _isLoading = true);
-    final user = await _auth.register(
-      _emailController.text.trim(),
-      _passController.text,
-    );
-    setState(() => _isLoading = false);
+    try {
+      await _auth.register(
+        _emailController.text.trim(),
+        _passController.text,
+      );
+      setState(() => _isLoading = false);
 
-    if (user != null) {
-      _showMessage('Registrasi berhasil. Silakan login.');
-      if (mounted) Navigator.pop(context);
-    } else {
-      _showMessage('Registrasi gagal. Coba lagi.');
+      // Show verification dialog
+      _showVerificationDialog();
+    } catch (e) {
+      setState(() => _isLoading = false);
+      String errorMsg = 'Registrasi gagal. Coba lagi.';
+      if (e.toString().contains('weak-password')) {
+        errorMsg = 'Password terlalu lemah. Gunakan minimal 6 karakter.';
+      } else if (e.toString().contains('email-already-in-use')) {
+        errorMsg = 'Email sudah digunakan. Gunakan email lain atau login.';
+      } else if (e.toString().contains('invalid-email')) {
+        errorMsg = 'Format email tidak valid.';
+      } else {
+        errorMsg = 'Error: $e';
+      }
+      _showMessage(errorMsg);
     }
   }
 

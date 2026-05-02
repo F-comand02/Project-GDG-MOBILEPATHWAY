@@ -8,9 +8,11 @@ class AuthService {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
+      await result.user!.sendEmailVerification();
       return result.user;
-    } catch (_) {
-      return null;
+    } catch (e) {
+      print('Register error: $e');  // Debug
+      rethrow;
     }
   }
 
@@ -20,8 +22,17 @@ class AuthService {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
       return result.user;
-    } catch (_) {
-      return null;
+    } catch (e) {
+      print('Login error: $e');  // Debug
+      rethrow;
+    }
+  }
+
+  // Logika Keluar (Logout)
+  Future<void> sendVerificationEmail() async {
+    User? user = _auth.currentUser;
+    if (user != null && !user.emailVerified) {
+      await user.sendEmailVerification();
     }
   }
 

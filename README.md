@@ -23,4 +23,6 @@ For help getting started with Flutter development, view the [online documentatio
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/farelyh/Project-GDG-MOBILEPATHWAY.git](https://github.com/farelyh/Project-GDG-MOBILEPATHWAY.git)
+   git clone
+   [https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY]
+   (https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY)

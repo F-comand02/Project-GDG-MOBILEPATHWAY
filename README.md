@@ -17,4 +17,4 @@ Jika Anda ingin menjalankan proyek ini di lingkungan lokal, silakan ikuti langka
 
 1. **Clone Repository:**
    ```bash
-   git clone [https://github.com/username-kamu/gdg_proyek.git](https://github.com/username-kamu/gdg_proyek.git)
+   git clone [https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY](https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY)

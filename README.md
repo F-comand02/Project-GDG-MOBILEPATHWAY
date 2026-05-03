@@ -1,28 +1,20 @@
-# Project-GDG-MOBILEPATHWAY
+# GDG Proyek - Flutter & Firebase 🚀
 
-A new Flutter project developed for the Google Developer Groups (GDG) pathway.
+Proyek aplikasi Flutter ini dibuat untuk keperluan komunitas **GDG (Google Developer Groups)**. Aplikasi ini mengintegrasikan layanan Firebase untuk fitur Authentication dan Firestore Database.
 
-## 🚀 Getting Started
+## 🛠 Fitur Utama
+* **Authentication**: Registrasi dan Login menggunakan Email & Password.
+* **Firestore Database**: Penyimpanan data secara realtime.
+* **Clean Architecture**: Struktur folder terbagi menjadi `models`, `pages`, dan `services`.
 
-This project is a starting point for a Flutter application. 
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ⚠️ Informasi Konfigurasi Firebase
+Untuk menjaga keamanan data dan menghindari penyalahgunaan API Key, file konfigurasi Firebase asli (`lib/firebase_options.dart`) **tidak dimasukkan** ke dalam repository ini karena alasan keamanan (terdaftar di `.gitignore`).
 
-* [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelabs)
-* [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Cara Menjalankan Proyek Ini:
+Jika Anda ingin menjalankan proyek ini di lingkungan lokal, silakan ikuti langkah-langkah berikut:
 
-For help getting started with Flutter development, view the [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on mobile development, and a full API reference.
-
-## 🛠️ Features
-
-* **Smart Waste Management:** Integrated with Zero Trace principles.
-* **Modern UI:** Built using Flutter's latest widgets.
-* **Scalable Architecture:** Designed for local impact and global resilience.
-
-## 📦 How to Run
-
-1. Clone the repository:
+1. **Clone Repository:**
    ```bash
-   git clone
-   [https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY]
-   (https://github.com/F-comand02/Project-GDG-MOBILEPATHWAY)
+   git clone [https://github.com/username-kamu/gdg_proyek.git](https://github.com/username-kamu/gdg_proyek.git)
